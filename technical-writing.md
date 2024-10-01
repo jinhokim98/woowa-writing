@@ -175,3 +175,7 @@ export const prefetchData = async (queryClient: QueryClient) => {
 ## 결론
 
 지금까지 React-Query를 사용한 여러 서버 상태 관리 기법을 소개했습니다. 유저가 어떻게 행동하는지 잘 파악하여 상황에 맞는 관리 전략을 이용한다면 사용자에게 더 큰 가치를 전달해줄 수 있을 것이라 생각합니다.
+
+## 참고
+
+[코드 예시](https://github.com/jinhokim98/technical-writing-example)
