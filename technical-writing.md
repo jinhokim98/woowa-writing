@@ -39,12 +39,12 @@ useMutation 훅을 통해 mutate 함수를 실행시켰을 때, 요청이 성공
 
 캐시를 무효화하는 과정에서 가끔 이전 데이터가 잠깐 보이는 현상이 발생할 수 있습니다. 이는 invalidateQueries가 현재 마운트된 컴포넌트의 활성 데이터만 즉시 업데이트하기 때문에, 비활성화된(inactive) 데이터는 즉시 갱신되지 않기 때문입니다. 이로 인해 사용자에게 불안정한 UX를 제공할 수 있습니다. 그렇다면 이런 상황에서는 어떻게 새로운 데이터를 불러와야 할까요?
 
-invalidateQueries 옵션에서 reflective를 'inactive'로 설정하면 됩니다. 이렇게 하면 현재 화면에 보이지 않는 데이터(inactive)라도 즉시 서버로 요청을 날릴 수 있습니다.
+invalidateQueries 옵션에서 refetchType 'inactive'로 설정하면 됩니다. 여기서 refetchType은 무효화가 됐을 때 어떤 상태의 캐시 데이터를 refetch 할 것인지를 정의해주는 것으로 'none', 'active', 'inactive', 'all'이 있습니다. 이렇게 설정하게 되면 현재 화면에 보이지 않는 데이터(inactive)라도 무효화를 해주게 되어 즉시 서버로 요청을 날릴 수 있습니다.
 
 ```tsx
 queryClient.invalidateQueries({
   queryKey: [QUERY_KEYS.crewList],
-  reflective: "inactive",
+  refetchType: "inactive",
 });
 ```
 
