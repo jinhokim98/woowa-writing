@@ -133,7 +133,7 @@ Suspense 컴포넌트를 사용하면 데이터를 기다리는 동안 빈 화�
 
 이렇게 됐을 때 부모와 자식은 각각 어떻게 보이게 될까요?
 
-<img src="./image/waterfall_before.gif" />
+<img src="./image/waterfall_before.gif" width="500" />
 
 위 코드에서는 부모의 데이터를 모두 받아온 후에야 자식 컴포넌트의 데이터를 요청하게 되며, 추가로 1초가 소요됩니다. 이를 'Suspense Waterfall 현상'이라고 합니다. 이 현상이 발생하는 이유는 Suspense가 부모 컴포넌트를 기다리는 동안 자식 컴포넌트를 불러오는 작업이 차단되기 때문입니다. 즉, 부모의 Suspense가 데이터를 다 가져올 때까지 자식 컴포넌트는 대기 상태에 놓여 렌더링되지 않고, 그 후에 자식의 데이터 요청이 시작됩니다. 따라서 부모와 자식 각각의 대기 시간이 누적되어 최종적으로 2초가 소요됩니다.
 
@@ -156,7 +156,7 @@ const [parent, child] = useSuspenseQueries({
 
 부모와 자식 컴포넌트에서 각각 데이터를 가져오는 대신, useSuspenseQueries를 사용하여 데이터를 병렬로 요청하게 하면 아래 영상과 같이 Waterfall 현상을 해결할 수 있습니다.
 
-<img src="./image/waterfall_after.gif" />
+<img src="./image/waterfall_after.gif" width="500" />
 
 ### 서버 상태를 미리 불러오기
 
